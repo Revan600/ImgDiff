@@ -10,15 +10,12 @@ namespace ImgDiff.Runner
             {
                 LeftFile = Path.Combine("Samples", "Sample_1_A.jpg"),
                 RightFile = Path.Combine("Samples", "Sample_1_B.jpg"),
-                //   ProgressObserver = new ProgressObserver("Sample_1")
+                ProgressObserver = new ProgressObserver("Sample_1")
             };
 
-            while (true)
-            {
-                using var calculator = ImgDiffCalculator.Create(options);
-                using var diffImg = calculator.Calculate(30);
-                diffImg.Save("test.jpg");
-            }
+            using var calculator = ImgDiffCalculator.Create(options);
+            using var diffImg = calculator.Calculate(30);
+            diffImg.Save("test.jpg");
         }
     }
 }
